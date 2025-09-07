@@ -1,9 +1,0 @@
-[
-  {
-    "session_id": "d97f2f1b-8040-477a-810c-9534ff4dc535",
-    "transcript_path": "/home/eric/.claude/projects/-home-eric-git-claude-code-config/d97f2f1b-8040-477a-810c-9534ff4dc535.jsonl",
-    "cwd": "/home/eric/git/claude-code-config",
-    "hook_event_name": "Notification",
-    "message": "Claude needs your permission to use Write"
-  }
-]
