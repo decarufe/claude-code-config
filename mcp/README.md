@@ -2,55 +2,126 @@
 
 This document contains the command line commands to install various MCP (Model Context Protocol) servers using Claude Code.
 
+## Scope Options
+
+- **local** (default): Available only in the current project directory
+- **project**: Shared with team via `.mcp.json` file (can be checked into version control)
+- **user**: Available across all projects on your workstation
+
 ## Installation Commands
 
 ### Context7
 Provides up-to-date documentation and code examples for any library by dynamically injecting version-specific documentation into your prompts.
 
 ```bash
-claude mcp add context7 -- npx -y @upstash/context7-mcp
+# Local scope (project-specific, default)
+claude mcp add --scope local context7 -- npx -y @upstash/context7-mcp
+
+# Project scope (team-shared via .mcp.json)
+claude mcp add --scope project context7 -- npx -y @upstash/context7-mcp
+
+# User scope (available across all projects)
+claude mcp add --scope user context7 -- npx -y @upstash/context7-mcp
 ```
 
 ### Sequential Thinking
 Facilitates a detailed, step-by-step thinking process for problem-solving and analysis, breaking down complex problems into manageable steps.
 
 ```bash
-claude mcp add sequential-thinking -- npx -y @modelcontextprotocol/server-sequential-thinking
+# Local scope (project-specific, default)
+claude mcp add --scope local sequential-thinking -- npx -y @modelcontextprotocol/server-sequential-thinking
+
+# Project scope (team-shared via .mcp.json)
+claude mcp add --scope project sequential-thinking -- npx -y @modelcontextprotocol/server-sequential-thinking
+
+# User scope (available across all projects)
+claude mcp add --scope user sequential-thinking -- npx -y @modelcontextprotocol/server-sequential-thinking
 ```
 
 ### GitHub
-GitHub's official MCP Server for repository management, issue & PR automation, and code analysis. **Note**: The npm package `@modelcontextprotocol/server-github` is deprecated. Use the Docker image instead:
+GitHub's official MCP Server for repository management, issue & PR automation, and code analysis. **Note**: The npm package `@modelcontextprotocol/server-github` is deprecated. Use the Docker image instead.
 
+**Docker (recommended):**
 ```bash
-# Alternative: Use the official Docker image
-# docker run ghcr.io/github/github-mcp-server
+# Use the official Docker image
+docker run ghcr.io/github/github-mcp-server
+```
 
-# Or use the deprecated npm package (not recommended)
-claude mcp add github -- npx -y @modelcontextprotocol/server-github
+**NPM package (deprecated):**
+```bash
+# Local scope (project-specific, default)
+claude mcp add --scope local github -- npx -y @modelcontextprotocol/server-github
+
+# Project scope (team-shared via .mcp.json)
+claude mcp add --scope project github -- npx -y @modelcontextprotocol/server-github
+
+# User scope (available across all projects)
+claude mcp add --scope user github -- npx -y @modelcontextprotocol/server-github
 ```
 
 ### Memory Bank
 Provides persistent memory and context management across sessions, allowing AI assistants to store and retrieve information. Multiple implementations available:
 
+**Option 1: @allpepper/memory-bank-mcp**
 ```bash
-# Option 1: @allpepper/memory-bank-mcp
-claude mcp add memory-bank -- npx -y @allpepper/memory-bank-mcp
+# Local scope (project-specific, default)
+claude mcp add --scope local memory-bank -- npx -y @allpepper/memory-bank-mcp
 
-# Option 2: @movibe/memory-bank-mcp
-claude mcp add memory-bank -- npx -y @movibe/memory-bank-mcp
+# Project scope (team-shared via .mcp.json)
+claude mcp add --scope project memory-bank -- npx -y @allpepper/memory-bank-mcp
 
-# Option 3: @telagod/memory-bank-mcp-server
-claude mcp add memory-bank -- npx -y @telagod/memory-bank-mcp-server
+# User scope (available across all projects)
+claude mcp add --scope user memory-bank -- npx -y @allpepper/memory-bank-mcp
+```
 
-# Option 4: Official basic memory implementation
-claude mcp add memory-bank -- npx -y @modelcontextprotocol/server-memory
+**Option 2: @movibe/memory-bank-mcp**
+```bash
+# Local scope (project-specific, default)
+claude mcp add --scope local memory-bank -- npx -y @movibe/memory-bank-mcp
+
+# Project scope (team-shared via .mcp.json)
+claude mcp add --scope project memory-bank -- npx -y @movibe/memory-bank-mcp
+
+# User scope (available across all projects)
+claude mcp add --scope user memory-bank -- npx -y @movibe/memory-bank-mcp
+```
+
+**Option 3: @telagod/memory-bank-mcp-server**
+```bash
+# Local scope (project-specific, default)
+claude mcp add --scope local memory-bank -- npx -y @telagod/memory-bank-mcp-server
+
+# Project scope (team-shared via .mcp.json)
+claude mcp add --scope project memory-bank -- npx -y @telagod/memory-bank-mcp-server
+
+# User scope (available across all projects)
+claude mcp add --scope user memory-bank -- npx -y @telagod/memory-bank-mcp-server
+```
+
+**Option 4: Official basic memory implementation**
+```bash
+# Local scope (project-specific, default)
+claude mcp add --scope local memory-bank -- npx -y @modelcontextprotocol/server-memory
+
+# Project scope (team-shared via .mcp.json)
+claude mcp add --scope project memory-bank -- npx -y @modelcontextprotocol/server-memory
+
+# User scope (available across all projects)
+claude mcp add --scope user memory-bank -- npx -y @modelcontextprotocol/server-memory
 ```
 
 ### MCP Compass
 MCP Discovery & Recommendation Service that helps you find the right MCP server for your needs through natural language queries.
 
 ```bash
-claude mcp add mcp-compass -- npx -y @liuyoshio/mcp-compass
+# Local scope (project-specific, default)
+claude mcp add --scope local mcp-compass -- npx -y @liuyoshio/mcp-compass
+
+# Project scope (team-shared via .mcp.json)
+claude mcp add --scope project mcp-compass -- npx -y @liuyoshio/mcp-compass
+
+# User scope (available across all projects)
+claude mcp add --scope user mcp-compass -- npx -y @liuyoshio/mcp-compass
 ```
 
 ## Usage Notes
